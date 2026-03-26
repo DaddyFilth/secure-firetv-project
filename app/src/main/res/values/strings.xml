@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SecureStream</string>
+    <string name="catalog_title">SecureStream Catalog</string>
+    <string name="backend_url">https://jsonplaceholder.typicode.com/albums/1/photos</string>
+</resources>

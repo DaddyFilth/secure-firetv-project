@@ -3,3 +3,5 @@ gradle/
 build/
 app/build/
 *.iml
+*.keystore
+keystore.properties
