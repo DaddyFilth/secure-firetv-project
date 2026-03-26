@@ -14,23 +14,22 @@ import java.io.IOException
 
 class MainFragment : BrowseSupportFragment() {
 
-    // REPLACE THIS WITH YOUR COMPUTER'S LOCAL WIFI IP ADDRESS
-    private val BACKEND_URL = "http://192.168.X.X:8080/api/catalog"
-    
+    private val backendUrl by lazy { getString(R.string.backend_url) }
+
     private val client = OkHttpClient()
     private val gson = Gson()
     private val uiHandler = Handler(Looper.getMainLooper())
 
     override fun onViewCreated(view: android.view.View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        title = "SecureStream Catalog"
-        
+        title = getString(R.string.catalog_title)
+
         setupEventListeners()
         fetchCatalog()
     }
 
     private fun fetchCatalog() {
-        val request = Request.Builder().url(BACKEND_URL).build()
+        val request = Request.Builder().url(backendUrl).build()
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
